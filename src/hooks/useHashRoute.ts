@@ -9,10 +9,18 @@ export function useHashRoute() {
   const [path, setPath] = useState(() => normalize(window.location.hash));
 
   useEffect(() => {
+    const reportRoute = (route: string) => {
+      if (window.parent !== window) {
+        window.parent.postMessage({ type: 'PED_FORGE_PREVIEW_ROUTE', path: `#${route}` }, '*');
+      }
+    };
     const onChange = () => {
-      setPath(normalize(window.location.hash));
+      const nextPath = normalize(window.location.hash);
+      setPath(nextPath);
+      reportRoute(nextPath);
       window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     };
+    reportRoute(normalize(window.location.hash));
     window.addEventListener('hashchange', onChange);
     return () => window.removeEventListener('hashchange', onChange);
   }, []);

@@ -1,5 +1,6 @@
 import { Reveal } from './Reveal';
 import { SHOP } from '@/data/content';
+import { DemoAction } from './DemoAction';
 
 type CtaBannerProps = {
   title?: string;
@@ -19,12 +20,12 @@ export function CtaBanner({
           <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">{title}</h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-stone-400">{text}</p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href={SHOP.whatsapp} target="_blank" rel="noreferrer" className="btn-primary w-full sm:w-auto">
+            <DemoAction className="btn-primary w-full sm:w-auto">
               Message on WhatsApp
-            </a>
-            <a href={SHOP.phoneHref} className="btn-outline w-full sm:w-auto">
+            </DemoAction>
+            <DemoAction className="btn-outline w-full sm:w-auto">
               Call {SHOP.phone}
-            </a>
+            </DemoAction>
           </div>
         </div>
       </Reveal>

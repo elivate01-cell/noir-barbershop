@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Instagram, Twitter, Send } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { SHOP } from '@/data/content';
+import { DemoAction } from '@/components/DemoAction';
 
 export function Contact() {
   const [sent, setSent] = useState(false);
@@ -59,9 +60,9 @@ export function Contact() {
                   <Phone size={20} className="mt-0.5 shrink-0 text-brass-400" />
                   <div>
                     <h3 className="text-sm font-medium text-stone-50">Phone</h3>
-                    <a href={SHOP.phoneHref} className="mt-1 block text-sm text-stone-400 transition-colors hover:text-brass-300">
+                    <DemoAction className="mt-1 block text-sm text-stone-400 transition-colors hover:text-brass-300">
                       {SHOP.phone}
-                    </a>
+                    </DemoAction>
                   </div>
                 </div>
               </Reveal>
@@ -70,9 +71,9 @@ export function Contact() {
                   <Mail size={20} className="mt-0.5 shrink-0 text-brass-400" />
                   <div>
                     <h3 className="text-sm font-medium text-stone-50">Email</h3>
-                    <a href={`mailto:${SHOP.email}`} className="mt-1 block text-sm text-stone-400 transition-colors hover:text-brass-300">
+                    <DemoAction className="mt-1 block text-sm text-stone-400 transition-colors hover:text-brass-300">
                       {SHOP.email}
-                    </a>
+                    </DemoAction>
                   </div>
                 </div>
               </Reveal>
@@ -99,34 +100,25 @@ export function Contact() {
             {/* WhatsApp + socials */}
             <Reveal delay={160}>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <a
-                  href={SHOP.whatsapp}
-                  target="_blank"
-                  rel="noreferrer"
+                <DemoAction
                   className="btn-primary group w-full sm:w-auto"
                 >
                   <MessageCircle size={16} />
                   Chat on WhatsApp
-                </a>
+                </DemoAction>
                 <div className="flex items-center gap-3">
-                  <a
-                    href={SHOP.socials[0].href}
-                    target="_blank"
-                    rel="noreferrer"
+                  <DemoAction
                     aria-label="Instagram"
                     className="flex h-10 w-10 items-center justify-center border border-ink-700 text-stone-300 transition-colors hover:border-brass-500 hover:text-brass-300"
                   >
                     <Instagram size={17} />
-                  </a>
-                  <a
-                    href={SHOP.socials[1].href}
-                    target="_blank"
-                    rel="noreferrer"
+                  </DemoAction>
+                  <DemoAction
                     aria-label="Twitter"
                     className="flex h-10 w-10 items-center justify-center border border-ink-700 text-stone-300 transition-colors hover:border-brass-500 hover:text-brass-300"
                   >
                     <Twitter size={17} />
-                  </a>
+                  </DemoAction>
                 </div>
               </div>
             </Reveal>
@@ -146,8 +138,8 @@ export function Contact() {
 
                 {sent ? (
                   <div className="mt-6 border border-brass-700/50 bg-brass-500/10 p-5 text-sm text-brass-200">
-                    Thanks — your message has been noted. We will be in touch shortly. For
-                    an instant reply, use WhatsApp.
+                    Demo only — no message was sent. This form shows the confirmation
+                    experience without contacting a business.
                   </div>
                 ) : null}
 

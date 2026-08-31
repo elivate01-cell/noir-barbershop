@@ -1,5 +1,6 @@
 import { Instagram, Twitter, MapPin, Phone, Mail } from 'lucide-react';
 import { NAV_LINKS, SHOP } from '@/data/content';
+import { DemoAction } from './DemoAction';
 
 type FooterProps = {
   onNavigate: (to: string) => void;
@@ -24,24 +25,18 @@ export function Footer({ onNavigate }: FooterProps) {
               {SHOP.tagline}. A premium modern barbershop in {SHOP.area}.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <a
-                href={SHOP.socials[0].href}
-                target="_blank"
-                rel="noreferrer"
+              <DemoAction
                 aria-label="Instagram"
                 className="flex h-9 w-9 items-center justify-center border border-ink-700 text-stone-300 transition-colors hover:border-brass-500 hover:text-brass-300"
               >
                 <Instagram size={16} />
-              </a>
-              <a
-                href={SHOP.socials[1].href}
-                target="_blank"
-                rel="noreferrer"
+              </DemoAction>
+              <DemoAction
                 aria-label="Twitter"
                 className="flex h-9 w-9 items-center justify-center border border-ink-700 text-stone-300 transition-colors hover:border-brass-500 hover:text-brass-300"
               >
                 <Twitter size={16} />
-              </a>
+              </DemoAction>
             </div>
           </div>
 
@@ -72,15 +67,15 @@ export function Footer({ onNavigate }: FooterProps) {
               </li>
               <li className="flex gap-3">
                 <Phone size={16} className="mt-0.5 shrink-0 text-brass-400" />
-                <a href={SHOP.phoneHref} className="transition-colors hover:text-brass-300">
+                <DemoAction className="transition-colors hover:text-brass-300">
                   {SHOP.phone}
-                </a>
+                </DemoAction>
               </li>
               <li className="flex gap-3">
                 <Mail size={16} className="mt-0.5 shrink-0 text-brass-400" />
-                <a href={`mailto:${SHOP.email}`} className="transition-colors hover:text-brass-300">
+                <DemoAction className="transition-colors hover:text-brass-300">
                   {SHOP.email}
-                </a>
+                </DemoAction>
               </li>
             </ul>
           </div>
